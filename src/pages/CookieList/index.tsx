@@ -16,8 +16,8 @@ const CookieList = () => {
         </Button>
       </Box>
       {cookies.map((cookie, idx) => (
-        <Box marginY={1.5}>
-          <CookieShow key={JSON.stringify(cookie) + idx} cookie={cookie} />
+        <Box key={JSON.stringify(cookie) + idx} marginY={1.5}>
+          <CookieShow cookie={cookie} />
         </Box>
       ))}
     </Box>

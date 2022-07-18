@@ -21,10 +21,10 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    addCookie: (state, payload: PayloadAction<Cookie>) => {},
-    removeCookie: (state, payload: PayloadAction<number>) => {},
-    setCookies: (state, payload: PayloadAction<Cookie[]>) => {},
-    updateCookie: (state, payload: PayloadAction<Cookie>) => {},
+    addCookie: (state, action: PayloadAction<Cookie>) => {},
+    removeCookie: (state, action: PayloadAction<number>) => {},
+    setCookies: (state, action: PayloadAction<Cookie[]>) => {},
+    updateCookie: (state, action: PayloadAction<Cookie>) => {},
   },
 });
 
