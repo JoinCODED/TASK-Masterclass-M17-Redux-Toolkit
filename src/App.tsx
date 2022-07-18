@@ -1,59 +1,25 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import { ThemeProvider } from "@mui/material/styles";
 
 import "./App.css";
-import { Counter } from "./features/counter/Counter";
-import logo from "./logo.svg";
+import CookieAdd from "./pages/CookieAdd";
+import CookieEdit from "./pages/CookieEdit";
+import CookieList from "./pages/CookieList";
+import Home from "./pages/Home";
+import { lightTheme } from "./theme";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <ThemeProvider theme={lightTheme}>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/cookies" element={<CookieList />}></Route>
+        <Route path="/cookies/new" element={<CookieAdd />}></Route>
+        <Route path="/cookies/:cookieId" element={<CookieEdit />}></Route>
+      </Routes>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
