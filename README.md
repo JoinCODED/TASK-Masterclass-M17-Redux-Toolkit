@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Cookies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Yum :)
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+1. Fork and clone [this] repository.
+2. Install the dependencies using `npm i`.
+3. Start the project using `npm start`.
 
-### `npm start`
+## Cookie List
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Go to `src/pages/CookieList/index.tsx`.
+2. Use `useAppSelector` to get the cookies from the store.
+   - You will replace the current `const cookies: Cookie[] = []` with the data received from `useAppSelector`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Cookie Add
 
-### `npm test`
+1. Go to `src/features/cookies/cookieSlice.tsx`.
+   - In our reducers we have an `addCookie` key, you will be adding your logic here.
+   - Mutate the state and add a new cookie to our cookie array.
+2. Go to `src/pages/CookieAdd/index.tsx`.
+   - Import our `addCookie` action and our `useAppDispatch` hook.
+   - Set `dispatch` equal to the return from our `useAppDispatch` hook.
+   - Add an `onSubmit` function that will take `data` that is of type `Cookie` (imported from our models) and return nothing.
+     - In our submit handler we will dispatch our `addCookie` action and pass it the data received from the form.
+   - Pass our `onSubmit` handler to the `CookieForm` component.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Cookie Remove
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Go to `src/features/cookies/cookieSlice.tsx`.
+   - In our reducers we have an `removeCookie` key, you will be adding your logic here.
+   - Mutate the state and remove the cookie from our cookie array that matches the `id` in the payload.
+2. Go to `src/pages/CookieShow/index.tsx`
+   - Import our `removeCookie` action and our `useAppDispatch` hook.
+   - Set `dispatch` equal to the return from our `useAppDispatch` hook.
+   - Dispatch our `removeCookie` action and pass it `cookie.id` inside of our `handleDelete`
