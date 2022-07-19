@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/cookies" element={<CookieList />}></Route>
         <Route path="/cookies/new" element={<CookieAdd />}></Route>
-        <Route path="/cookies/:cookieId" element={<CookieEdit />}></Route>
+        <Route path="/cookies/:cookieId/edit" element={<CookieEdit />}></Route>
       </Routes>
     </ThemeProvider>
   );

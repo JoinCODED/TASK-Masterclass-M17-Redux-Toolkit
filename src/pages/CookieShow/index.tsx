@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   Button,
@@ -29,7 +31,9 @@ const CookieShow = (props: CookieShowProps) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button>Edit Cookie</Button>
+        <Button component={Link} to={`/cookies/${cookie.id}/edit`}>
+          Edit Cookie
+        </Button>
         <Button color="error" startIcon={<DeleteIcon />} onClick={handleDelete}>
           Delete Cookie
         </Button>

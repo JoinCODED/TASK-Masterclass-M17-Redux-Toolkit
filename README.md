@@ -22,8 +22,10 @@ Yum :)
 2. Go to `src/pages/CookieAdd/index.tsx`.
    - Import our `addCookie` action and our `useAppDispatch` hook.
    - Set `dispatch` equal to the return from our `useAppDispatch` hook.
+   - Set `navigate` equal to the return the `useNavigate` hook (for more info on `useNavigate`, look [here](https://reactrouter.com/docs/en/v6/hooks/use-navigate)).
    - Add an `onSubmit` function that will take `data` that is of type `Cookie` (imported from our models) and return nothing.
      - In our submit handler we will dispatch our `addCookie` action and pass it the data received from the form.
+     - Then we will `navigate` to `"/cookies"`.
    - Pass our `onSubmit` handler to the `CookieForm` component.
 
 ## Cookie Remove
@@ -46,5 +48,8 @@ Yum :)
    - Search for the cookie in our store (using `useAppSelector`) to get the cookie in our store.
    - Pass in the cookie retrieved from the store to `CookieForm` as the `defaultValues` prop.
    - Set `dispatch` equal to the return from our `useAppDispatch` hook.
+   - Set `navigate` equal to the return the `useNavigate` hook.
    - Add an `onSubmit` function that will take `data` that is of type `Cookie` (imported from our models) and return nothing.
      - In our submit handler we will dispatch our `setCookie` action and pass it the data received from the form.
+     - Then we will `navigate` to `"/cookies"`.
+   - Pass our `onSubmit` handler to the `CookieForm` component.

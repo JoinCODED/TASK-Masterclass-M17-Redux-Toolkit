@@ -17,17 +17,16 @@ const initialState: CookieState = {
   ],
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const cookieSlice = createSlice({
+  name: "cookie",
   initialState,
   reducers: {
     addCookie: (state, action: PayloadAction<Cookie>) => {},
     removeCookie: (state, action: PayloadAction<number>) => {},
-    setCookies: (state, action: PayloadAction<Cookie[]>) => {},
     updateCookie: (state, action: PayloadAction<Cookie>) => {},
   },
 });
 
-export const { addCookie, removeCookie, setCookies } = counterSlice.actions;
+export const { addCookie, removeCookie } = cookieSlice.actions;
 
-export default counterSlice.reducer;
+export default cookieSlice.reducer;
